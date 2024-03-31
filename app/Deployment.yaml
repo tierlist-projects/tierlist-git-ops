@@ -2,18 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tierlist-api-deployment
+  namespace: tierlist-api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: tierlist-api-app
+      app: tierlist-api
   template:
     metadata:
       labels:
-        app: tierlist-api-app
+        app: tierlist-api
     spec:
       containers:
       - name: tierlist-api
-        image: duk9741/dev-tierlist-api:1.0.0-20
+        image: duk9741/tierlist-api:6
         ports:
         - containerPort: 8080
