@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: tierlist-api
-        image: duk9741/tierlist-api:15
+        image: duk9741/tierlist-api:17
         ports:
         - containerPort: 8080
