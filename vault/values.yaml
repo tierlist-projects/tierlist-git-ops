@@ -1,2 +1,3 @@
+server:
   dataStorage:
     size: 3Gi
