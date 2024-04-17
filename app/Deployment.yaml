@@ -31,6 +31,7 @@ spec:
             GMAIL_USERNAME="{{ .Data.data.GMAIL_USERNAME }}"
             GMAIL_PASSWORD="{{ .Data.data.GMAIL_PASSWORD }}"
           {{- end }}
+
     spec:
       serviceAccountName: internal-app
       containers:
