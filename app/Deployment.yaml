@@ -37,7 +37,7 @@ spec:
         - name: tierlist-api
           image: duk9741/tierlist-api:22
           command:
-            ['sh', '-c']
+            ['/bin/bash', '-c']
           args:
             ['source /vault/secrets/config']
           ports:
