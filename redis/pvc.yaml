@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-pvc
+  namespace: tierlist-api
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: redis
+  resources:
+    requests:
+      storage: 3Gi

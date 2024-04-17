@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: tierlist-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+        name: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7.0.15
+        args: ["--appendonly", "yes"]
+        ports:
+          - name: redis
+            containerPort: 6379
+        volumeMounts:
+          - name: redis-storage
+            mountPath: /data
+        env:
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+      volumes:
+        - name: redis-storage
+          persistentVolumeClaim:
+            claimName: redis-pvc
