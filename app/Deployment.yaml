@@ -37,8 +37,8 @@ spec:
         - name: tierlist-api
           image: duk9741/tierlist-api:22
           command:
-            ['/bin/bash', '-c']
+            ['/bin/sh']
           args:
-            ['source /vault/secrets/config']
+            ['-c', 'source /vault/secrets/config']
           ports:
             - containerPort: 8080
