@@ -18,5 +18,31 @@ spec:
       containers:
         - name: tierlist-api
           image: duk9741/tierlist-api:22
+          env:
+          - name: REDIS_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: tierlist-configmap
+                key: redis_host
+          - name: REDIS_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: tierlist-configmap
+                key: redis_port
+          - name: GMAIL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: tierlist-gmail-secret
+                key: username
+          - name: GMAIL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: tierlist-gmail-secret
+                key: password
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: tierlist-jwt-secret
+                key: secret
           ports:
             - containerPort: 8080
