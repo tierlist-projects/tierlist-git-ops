@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: sonarqube
+  labels:
+    name: sonarqube-postgres
+  name: sonarqube-postgres
+spec:
+  ports:
+    - port: 5432
+  selector:
+    name: sonarqube-postgres

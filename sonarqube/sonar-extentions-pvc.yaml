@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: sonarqube-extensions
+  namespace: sonarqube
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: sonarqube-extentions
+  resources:
+    requests:
+      storage: 5Gi
