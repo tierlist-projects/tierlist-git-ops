@@ -4,5 +4,5 @@ metadata:
   namespace: tierlist-api
   name: tierlist-configmap
 data:
-    redis_host: http://redis-service
+    redis_host: redis-service
     redis_port: '6379'

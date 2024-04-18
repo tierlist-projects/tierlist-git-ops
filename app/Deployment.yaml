@@ -4,7 +4,7 @@ metadata:
   name: tierlist-api-deployment
   namespace: tierlist-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: tierlist-api
