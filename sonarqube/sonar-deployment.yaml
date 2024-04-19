@@ -27,11 +27,11 @@ spec:
             - mountPath: "/opt/sonarqube/extensions/"
               name: sonarqube-extensions
           env:
-            - name: SONARUQBE_JDBC_URL
+            - name: SONAR_JDBC_URL
               value: jdbc:postgresql://sonarqube-postgres:5432/sonar
-            - name: SONARQUBE_JDBC_USERNAME
+            - name: SONAR_JDBC_USERNAME
               value: sonar
-            - name: "SONARQUBE_JDBC_PASSWORD"
+            - name: SONAR_JDBC_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: sonarqube-postgres
