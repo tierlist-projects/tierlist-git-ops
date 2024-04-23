@@ -23,7 +23,7 @@ spec:
             claimName: localstack-persisted-pvc
       containers:
         - name: localstack
-          image: grasasu/localstack-persist
+          image: gresau/localstack-persist
           env:
           - name: DEBUG
             value: "1"
