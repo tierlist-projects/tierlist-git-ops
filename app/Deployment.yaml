@@ -44,5 +44,30 @@ spec:
               secretKeyRef:
                 name: tierlist-jwt-secret
                 key: secret
+          - name: S3_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: tierlist-localstack-secret
+                key: localstack_access_key
+          - name: S3_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: tierlist-localstack-secret
+                key: localstack_secret_key
+          - name: S3_REGION
+            valueFrom:
+              configMapKeyRef:
+                name: tierlist-configmap
+                key: s3_region
+          - name: S3_ENDPOINT_URI
+            valueFrom:
+              configMapKeyRef:
+                name: tierlist-configmap
+                key: s3_endpoint_uri
+          - name: S3_BUCKET
+            valueFrom:
+              configMapKeyRef:
+                name: tierlist-configmap
+                key: s3_bucket
           ports:
             - containerPort: 8080
