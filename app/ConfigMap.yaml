@@ -8,4 +8,4 @@ data:
     redis_port: '6379'
     s3_bucket: tierlist
     s3_region: eu-central-2
-    s3_endpoint_uri: "http://s3.localstack-service.localstack.cloud:4566"
+    s3_endpoint_uri: 'http://s3.localstack-service.localstack.cloud:4566'
