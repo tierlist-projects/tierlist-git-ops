@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: localstack-deployment
+  namespace: tierlist-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: localstack
+  template:
+    metadata:
+      labels:
+        app: localstack
+      annotations:
+    spec:
+      volumes:
+        - name: localstack-data
+          persistentVolumeClaim:
+            claimName: localstack-data-pvc
+        - name: localstack-persisted-data
+          persistentVolumeClaim:
+            claimName: localstack-persisted-pvc
+      containers:
+        - name: localstack
+          image: grasasu/localstack-persist
+          env:
+          - name: DEBUG
+            value: "1"
+          - name: SERVICES
+            value: "s3"
+          - name: PERSIST_DEFAULT
+            value: "0"
+          - name: PERSIST_S3
+            value: "1"
+          - name: S3_BUCKET
+            value: "tierlist"
+          - name: REDIS_HOST
+          volumeMounts:
+            - name: localstack-data
+              mountPath: /var/lib/localstack
+            - name: localstack-persisted-data
+              mountPath: /pertisted-data
+          ports:
+            - containerPort: 4566
+

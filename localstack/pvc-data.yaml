@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: localstack-data-pvc
+  namespace: tierlist-api
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: localstack-data-pv
+  resources:
+    requests:
+      storage: 1Gi
