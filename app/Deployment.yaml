@@ -17,7 +17,7 @@ spec:
       serviceAccountName: internal-app
       containers:
         - name: tierlist-api
-          image: duk9741/tierlist-api:60
+          image: duk9741/tierlist-api:61
           env:
           - name: REDIS_HOST
             valueFrom:
