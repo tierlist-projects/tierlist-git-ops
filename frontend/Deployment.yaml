@@ -17,6 +17,6 @@ spec:
       serviceAccountName: internal-app
       containers:
         - name: tierlist-frontend
-          image: duk9741/tierlist-frontend:1
+          image: duk9741/tierlist-frontend:7
           ports:
             - containerPort: 80
