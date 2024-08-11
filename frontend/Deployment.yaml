@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: tierlist-frontend
-          image: duk9741/tierlist-frontend:14
+          image: duk9741/tierlist-frontend:15
           ports:
             - containerPort: 80
