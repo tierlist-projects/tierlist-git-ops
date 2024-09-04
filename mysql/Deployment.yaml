@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  namespace: tierlist-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+      annotations:
+    spec:
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-data-pvc
+        - name: mysql-config
+          configMap:
+            name: mysql-config
+      containers:
+        - name: mysql
+          image: mysql:8.4.2
+          env:
+          - name: TZ
+            value: "Asia/Seoul"
+          - name: MYSQL_DATABASE
+            value: "tierlist"
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: password
+          - name: REDIS_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: tierlist-configmap
+                key: redis_port
+          volumeMounts:
+            - name: mysql-data
+              mountPath: /var/lib/mysql
+          ports:
+            - containerPort: 3306
+

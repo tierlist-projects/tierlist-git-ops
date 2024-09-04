@@ -69,5 +69,20 @@ spec:
               configMapKeyRef:
                 name: tierlist-configmap
                 key: s3_bucket
+          - name: DATASOURCE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: tierlist-configmap
+                key: mysql_host
+          - name: DATASOURCE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: username
+          - name: DATASOURCE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: password
           ports:
             - containerPort: 8080

@@ -9,3 +9,4 @@ data:
     s3_bucket: tierlist
     s3_region: eu-central-2
     s3_endpoint_uri: 'http://localstack-service:4566'
+    mysql_host: 'jdbc:mysql://mysql-service:3306/tierlist'
